@@ -13,13 +13,11 @@
 @include h5bp-embeds;
 @include h5bp-tables;
 @include h5bp-helpers;
-//@include h5bp-links;
-//@include h5bp-lists;
 
-@import "compass/layout";
 @import "compass/css3";
-@import "compass/typography";
 @import "compass/utilities";
+//@import "compass/layout";
+//@import "compass/typography";
 
 @import "servNav/*.png";
 @import "mainNav/*.png";

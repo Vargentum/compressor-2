@@ -20,12 +20,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="screen.scss" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="screen.scss" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sass/screen.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="320" column="29" selection-start="10312" selection-end="10312" vertical-scroll-proportion="0.0">
+            <state line="17" column="28" selection-start="366" selection-end="366" vertical-scroll-proportion="0.5">
               <folding>
-                <element signature="e#5631#6962#2" expanded="true" />
+                <element signature="e#5589#6920#2" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -34,16 +34,16 @@
       <file leaf-file-name="product.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/product.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="305" column="45" selection-start="15002" selection-end="15002" vertical-scroll-proportion="29.666666">
+            <state line="10" column="14" selection-start="433" selection-end="433" vertical-scroll-proportion="-4.7826085">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="category.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="category.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/category.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="57" selection-start="0" selection-end="15886" vertical-scroll-proportion="0.33333334">
+            <state line="10" column="0" selection-start="419" selection-end="419" vertical-scroll-proportion="0.95652175">
               <folding />
             </state>
           </provider>
@@ -63,9 +63,9 @@
         <option value="$PROJECT_DIR$/template.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/main.js" />
-        <option value="$PROJECT_DIR$/sass/screen.scss" />
         <option value="$PROJECT_DIR$/product.html" />
         <option value="$PROJECT_DIR$/category.html" />
+        <option value="$PROJECT_DIR$/sass/screen.scss" />
       </list>
     </option>
   </component>
@@ -275,7 +275,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="231" column="14" selection-start="6836" selection-end="6836" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#5631#6962#2" expanded="true" />
+            <element signature="e#5589#6920#2" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -291,7 +291,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="259" column="1" selection-start="6253" selection-end="6253" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#5631#6962#2" expanded="true" />
+            <element signature="e#5589#6920#2" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -307,7 +307,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="259" column="1" selection-start="6253" selection-end="6253" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#5631#6962#2" expanded="true" />
+            <element signature="e#5589#6920#2" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -323,7 +323,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#5631#6962#2" expanded="true" />
+            <element signature="e#5589#6920#2" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -335,26 +335,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sass/screen.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="320" column="29" selection-start="10312" selection-end="10312" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#5631#6962#2" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/product.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="305" column="45" selection-start="15002" selection-end="15002" vertical-scroll-proportion="29.666666">
+        <state line="10" column="14" selection-start="433" selection-end="433" vertical-scroll-proportion="-4.7826085">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/category.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="57" selection-start="0" selection-end="15886" vertical-scroll-proportion="0.33333334">
+        <state line="10" column="0" selection-start="419" selection-end="419" vertical-scroll-proportion="0.95652175">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sass/screen.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="28" selection-start="366" selection-end="366" vertical-scroll-proportion="0.5">
+          <folding>
+            <element signature="e#5589#6920#2" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
