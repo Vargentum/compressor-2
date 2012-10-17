@@ -1,0 +1,328 @@
+@charset "utf-8";
+@import "compass/reset";
+
+@import "h5bp";
+@include h5bp-display;
+@include h5bp-selection;
+@include h5bp-chromeframe;
+@include h5bp-media;
+@include h5bp-base;
+@include h5bp-typography;
+@include h5bp-figures;
+@include h5bp-forms;
+@include h5bp-embeds;
+@include h5bp-tables;
+@include h5bp-helpers;
+//@include h5bp-links;
+//@include h5bp-lists;
+
+@import "compass/layout";
+@import "compass/css3";
+@import "compass/typography";
+@import "compass/utilities";
+
+@import "servNav/*.png";
+@import "mainNav/*.png";
+
+//border-box-sizing for all elems
+*{@include box-sizing(border-box);}
+input[type=search]{@include box-sizing(border-box);}
+
+/*VARIABLES
+--------------------------------------------*/
+//set liks color here
+$linkDefaultColor:#559cd1;
+$linkHoverColor:#b53228;
+$linkActiveColor:#b53228;
+$linkVisitedColor:#b53228;
+$linkFocusedColor:#b53228;
+//set colors here;
+
+//base font params--------------------
+$baseFontFamily: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif;
+$baseFontColor: #767676;
+$baseFontSize:12px;
+$baseLineHeight: 1.4;
+//layout params-----------------------
+$baseWidth: 995px;
+$ftrHeight:135px;
+
+/*FONT FACEing
+---------------------------------------------------------*/
+@each $font-face in
+galsc-webfont,
+galsc-bold-webfont,
+galsc-bolditalic-webfont,
+galsc-italic-webfont{
+ @font-face {
+   font-family: $font-face; font-style: normal; font-weight: normal;
+   src: url('../fonts/#{$font-face}.eot');
+   src: url('../fonts/#{$font-face}.eot?#iefix') format('embedded-opentype'),
+   url('../fonts/#{$font-face}.woff') format('woff'),
+   url('../fonts/#{$font-face}.ttf')  format('truetype');
+ }
+}
+
+$baseFont: 'galsc-webfont';
+$baseFontBold: 'galsc-bold-webfont';
+$baseFontItalic: 'galsc-bolditalic-webfont';
+$baseFontBoldItalic: 'galsc-italic-webfont';
+
+b,strong{
+  font-family: $baseFontBold;
+  em{font-family: $baseFontBoldItalic;}
+}
+em{
+  font-family: $baseFontItalic;
+  b, strong{font-family: $baseFontBoldItalic;}
+}
+
+
+/*HELPER CLASSES
+---------------------------------------------------------*/
+//floats
+.floatLt{float: left;}
+.floatRt{float: right;}
+//pseudo elems mixin
+@mixin pseudoBlockAbs{
+  content: '';
+  display: block;
+  position: absolute;
+}
+//vertical centering mixin
+@mixin vCtr{
+  display: table-cell;
+  height: inherit;
+  vertical-align: middle;
+}
+//for horisontal layouts
+@mixin flexList{
+  .flexbox &{@include display-box;}
+  .no-flexbox & > *{@include inline-block;}
+}
+.flexList{@include flexList;}
+@mixin hList{&>*{@include inline-block;}}
+.l-hList{@include hList;}
+@mixin jList{
+  text-align: justify;
+  line-height: 0;
+  font-size: 1px;
+  text-justify: newspaper;
+  zoom:1;
+  text-align-last: justify;
+  &:after{
+    content: "";
+    display: inline-block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    width: 100%;
+  }
+  >*{
+    text-align: left;
+    @include inline-block;
+    line-height: $baseLineHeight;font-size: $baseFontSize;
+  }
+}
+.l-jList{@include jList;}
+@mixin jList_singleLine{
+  .flexbox &{@include display-box; @include box-pack(justify);}
+  .no-flexbox &{@include jList;}
+}
+.l-jList_singleLine{@include jList;}
+//img wrapper
+@mixin imgWrap{
+  img{width:100%;height: 100%;}
+}
+//hack for ie9 - need for gradient backgrounds
+:root .gradient {filter: none \0/IE9; }
+@mixin ie9-gradient-support{
+  $experimental-support-for-svg: true;
+  @extend .gradient;
+}
+
+/*DEFAULT STYLES
+--------------------------------------------*/
+@mixin input{}
+@mixin textarea{}
+@mixin h1{font-size: 2em;margin: 0.67em 0;}
+@mixin h2{font-size: 1.5em;margin: 0.83em 0;}
+@mixin h3{font-size: 1.17em;margin: 1em 0;}
+@mixin h4{font-size: 1em;margin: 1.33em 0;}
+@mixin h5{font-size: 0.83em;margin: 1.67em 0;}
+@mixin h6{font-size: 0.75em;margin: 2.33em 0;}
+@mixin ul{margin: 1em 0;padding: 0 0 0 40px;}
+@mixin ol{margin: 1em 0;padding: 0 0 0 40px;}
+@mixin defaultCss{
+  h1{@include h1;}
+  h2{@include h1;}
+  h3{@include h1;}
+  ul{@include h1;}
+  ol{@include h1;}
+}
+.defaultCss{@include defaultCss;}
+@mixin link{
+  @include link-colors($linkDefaultColor, $linkHoverColor, $linkActiveColor, $linkVisitedColor, $linkFocusedColor);
+  @include single-transition(all,.4s,ease,0s);
+  &.active{color:$linkHoverColor;}
+  &:focus {outline: thin dotted;}
+  &:active,&:hover {outline: 0;}
+}
+a{@include link;}
+/*OBJECTS mixins
+--------------------------------------------*/
+@mixin vidget-bg{background-color: #eee;}
+@mixin vidget-gradient{
+  background-color: rgb(237,237,237);
+  @include filter-gradient(#ededed, #f6f6f6, vertical);
+  @include ie9-gradient-support;
+  @include background-image(linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(238,238,238,1) 32%,rgba(240,240,240,1) 33%,rgba(241,241,241,1) 48%,rgba(246,246,246,1) 70%,rgba(246,246,246,1) 100%));
+}
+@mixin vidget-active-bg{background-color: #fee85d;}
+@mixin vidgetBgActive{
+  @include ie9-gradient-support;
+  background-color: rgb(252,223,67);
+  @include filter-gradient(#fcdf43, #fffd84, vertical);
+  @include ie9-gradient-support;
+  @include background-image(linear-gradient(top,  rgba(252,223,67,1) 0%,rgba(253,225,66,1) 4%,rgba(250,223,70,1) 5%,rgba(252,226,67,1) 8%,rgba(252,226,71,1) 9%,rgba(251,224,71,1) 13%,rgba(252,227,73,1) 18%,rgba(254,229,77,1) 19%,rgba(252,226,77,1) 22%,rgba(255,230,78,1) 24%,rgba(255,233,87,1) 32%,rgba(255,233,88,1) 37%,rgba(254,235,94,1) 38%,rgba(255,235,92,1) 39%,rgba(255,236,98,1) 42%,rgba(255,240,99,1) 44%,rgba(255,237,99,1) 47%,rgba(255,240,103,1) 48%,rgba(254,241,101,1) 49%,rgba(255,242,107,1) 51%,rgba(255,242,104,1) 52%,rgba(255,239,107,1) 53%,rgba(254,244,112,1) 54%,rgba(255,244,108,1) 56%,rgba(255,252,123,1) 70%,rgba(254,254,122,1) 72%,rgba(255,251,125,1) 75%,rgba(255,254,127,1) 82%,rgba(255,251,126,1) 84%,rgba(255,255,131,1) 86%,rgba(255,255,129,1) 92%,rgba(255,253,132,1) 100%));
+}
+@mixin vidgetBgAcitve-1{
+  background-color: rgb(254,229,77);
+  @include filter-gradient(#fee54d, #fffb52, vertical);
+  @include ie9-gradient-support;
+  @include background-image(linear-gradient(top,  rgba(254,229,77,1) 0%,rgba(254,229,75,1) 43%,rgba(255,238,80,1) 73%,rgba(254,242,78,1) 86%,rgba(255,244,82,1) 90%,rgba(255,251,82,1) 100%));
+
+}
+/*LAYOUT
+----------------------------------------------------------*/
+@mixin layout{
+  .l-pageWrap{
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto;
+    width: $baseWidth
+  }
+  .l-pageHeader {
+    position: relative;
+    @include jList;
+  }
+  .l-pageContentWrap{padding-bottom: $ftrHeight !important;}
+  .l-pageFooter{
+    position: relative;
+    height: $ftrHeight;
+    margin: -$ftrHeight auto 0;
+    width: $baseWidth
+  }
+}
+html, button, input, select, textarea {
+  height: 100%;
+  font-family: $baseFontFamily;
+  color: $baseFontColor;
+}
+body {
+  height: 100%;
+  font-size: $baseFontSize;
+  line-height: $baseLineHeight;
+  background: #fff;
+  @include layout;
+}
+
+.l-pageWrap {}
+/* page header elems
+----------------------------------*/
+.b-hdrLogo{width:343px;margin-left: 15px;}
+.b-hdrMainNav{
+  width:615px;
+  ul{
+    @include jList;
+  }
+  .item{
+    display: block;
+    position: relative;
+    overflow: hidden;
+    @include vidget-gradient;
+    width:150px;
+    height: 80px;
+    box-shadow: 0 1px 0 #c5c5c5;
+    margin-bottom: 5px;
+    font-size: 13px;
+    line-height: 1.1;
+    padding:15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    @include border-radius(15px);
+    @include link-colors(#8c8c8c, #b17323);
+    &:focus,&:hover,&.active{
+      @include vidgetBgActive;
+      color:#b17323;
+    }
+    &:before{@include pseudoBlockAbs;bottom:0;right:0;}
+    @for $i from 1 through 8{
+      &.item-#{$i}:before{
+        @include mainNav-sprite(nav-#{$i});
+      }
+    }
+  }
+}
+.b-hdrServNav{
+  position: absolute;
+  left:15px;
+  bottom:28px;
+  ul{@include hList;}
+  .item{
+    &.item-1{
+      @include servNav-sprite(nav-1);
+      width:18px; height: 17px;
+      margin-right: 25px;
+    }
+    &.item-2{
+      @include servNav-sprite(nav-2);
+      width:20px; height: 13px;
+    }
+  }
+}
+/* page content
+------------------------------------*/
+.l-contentWrap {
+
+}
+  //main column-------------->
+  .l-columnMain{}
+  //left column-------------->
+  .l-columnLt{}
+  //right column-------------->
+  .l-columnRt{}
+
+/* Footer
+------------------------------------*/
+.l-pageFooter {
+}
+
+/*INDEPENDENT MODULES styles
+-----------------------------------------------------------------------------------------------*/
+//bread crumbs
+.b-crumbs{
+  ul{@include hList;}
+  .item{}
+}
+/*main page specific elements styles
+-----------------------------------------------------------------------------------------------*/
+
+/*some page specific elements styles
+------------------------------------------------------------------------------------------------*/
+/*some page specific elements styles
+------------------------------------------------------------------------------------------------*/
+/*plugins styles
+------------------------------------------------------------------------------------------------*/
+
+
+//debug
+//* { outline: 2px dotted red; }
+//* * { outline: 2px dotted green; }
+//* * * { outline: 2px dotted orange; }
+//* * * * { outline: 2px dotted blue; }
+//* * * * * { outline: 1px solid red; }
+//* * * * * * { outline: 1px solid green; }
+//* * * * * * * { outline: 1px solid orange; }
+//* * * * * * * * { outline: 1px solid blue; }
