@@ -23,10 +23,11 @@
 <div class="l-pageWrap">
 
     <!-- HEADER -->
-    <header class="l-pageHeader" itemscope itemtype='http://schema.org/WPHeader'>
+    <header class="l-pageHeader" itemscope itemtype="http://schema.org/LocalBusiness">
         <!--main logo-->
-        <a class="b-hdrLogo" href="index.html">
-            <img src="images/logo.png" alt="B-compressor.ru - поршневые компрессоры">
+        <a class="b-hdrLogo" href="index.html" itemprop='url'>
+            <img src="images/logo.png" alt="B-compressor.ru - поршневые компрессоры" itemprop='image'>
+            <span class="ir" itemprop="name">B-compressor.ru - поршневые компрессоры</span>
         </a>
         <!--header main navigation-->
         <nav class="b-hdrMainNav" itemscope itemtype='http://schema.org/SiteNavigationElement'>
@@ -259,23 +260,24 @@
         </ul>
     </nav>
     <!--bottom footer block-->
-    <div class="l-pageFooter__bottomBlock">
+    <div class="l-pageFooter__bottomBlock" itemscope itemtype="http://schema.org/LocalBusiness">
         <!--footer logo-->
-        <a href="#" class="b-ftrLogo">
-            <img src="images/ftr-logo.png" alt="B-compressor.ru - поршневые компрессоры">
+        <a href="#" class="b-ftrLogo" itemprop='url'>
+            <img src="images/ftr-logo.png" alt="B-compressor.ru - поршневые компрессоры"  itemprop='image'>
+            <span class="ir" itemprop="name">B-compressor.ru - поршневые компрессоры</span>
         </a>
         <!--copyrights-->
         <small class="b-copy">2011 Copyright B-compressor.ru Продажа поршневых компрессоров</small>
         <!--phone numbers-->
         <address class="b-phone">
             <p class="title">Телефоны:</p>
-            <p class="item">+7 (495) <b class="item__content">787 48 25</b></p>
-            <p class="item">+7 (495) <b class="item__content">787 56 00</b></p>
+            <p class="item" itemprop='telephone'>+7 (495) <b class="item__content">787 48 25</b></p>
+            <p class="item" itemprop='telephone'>+7 (495) <b class="item__content">787 56 00</b></p>
         </address>
         <!--mail us-->
         <address class="b-mailUs">
             <p class="title">Эл.почта:</p>
-            <a class="item" href="mailto:info@b-compressor.ru">info@b-compressor.ru</a>
+            <a class="item" href="mailto:info@b-compressor.ru" itemprop='email'>info@b-compressor.ru</a>
         </address>
         <!--counter-->
         <div class="counter">
@@ -285,6 +287,65 @@
 </footer>
 <!-- END FOOTER -->
 
+<!--address vidget (on the top)-->
+<div class="b-adressVidget">
+    <address class="b-phone">
+        <p class="title">Телефоны:</p>
+        <div>
+            <p class="item">+7 (495) <b class="item__content">787 48 25</b></p>
+            <p class="item">+7 (495) <b class="item__content">787 56 00</b></p>
+        </div>
+    </address>
+    <address class="b-mailUs">
+        <p class="title">Эл.почта:</p>
+        <a class="item" href="mailto:info@b-compressor.ru">info@b-compressor.ru</a>
+    </address>
+</div>
+
+<div class="b-shopcartVidget">
+    <form class="search">
+        <input type="search" placeholder="Поиск по сайту">
+        <button></button>
+    </form>
+    <address class="l-jList b-phone">
+        <p class="title">Телефоны:</p>
+        <p class="item">+7 (495) <b class="item__content">787 48 25</b></p>
+    </address>
+    <table class="table">
+        <tr>
+            <th>Ваш заказ</th>
+            <th>Цена</th>
+            <th>Кол-во</th>
+            <th>Сумма</th>
+        </tr>
+        <tr>
+            <td class="name"><a href="#">Картер <span class="model">C-415М.20.00.329</span></a></td>
+            <td class="price"><b>10425</b> руб.</td>
+            <td>
+                <div class="b-counter">
+                    <a href="#" class="control control__minus"><span>-</span></a>
+                    <span class="b-counter__item">1</span>
+                    <a href="#" class="control control__plus">+</a>
+                </div>
+            </td>
+            <td class="sum"><b>10425</b> руб.</td>
+        </tr>
+        <tr>
+            <td><a href="#">Картер <span class="name">C-415М.20.00.329</span></a></td>
+            <td class="price"><b>10425</b> руб.</td>
+            <td>
+                <div class="b-counter">
+                    <a href="#" class="control control__minus"><span>-</span></a>
+                    <span class="b-counter__item">1</span>
+                    <a href="#" class="control control__plus">+</a>
+                </div>
+            </td>
+            <td class="sum"><b>10425</b> руб.</td>
+        </tr>
+    </table>
+    <div class="total">Итого:<b>24590 руб.</b></div>
+    <a href="#" class="purchase">Оформить заказ</a>
+</div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>

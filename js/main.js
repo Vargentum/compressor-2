@@ -30,5 +30,11 @@ $(function(){
         $(this).hover(function(){
             $(this).prev().children('.item').toggleClass('no-border');
         })
-    })
+    });
+    $('.b-product__content .description dd').each(function(){
+        var ddMinHeight = $(this).prev().height();
+        ddMinHeight = ddMinHeight +15;
+        $(this).css('min-height', ddMinHeight);
+    });
+
 });

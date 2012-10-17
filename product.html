@@ -23,10 +23,11 @@
 <div class="l-pageWrap">
 
     <!-- HEADER -->
-    <header class="l-pageHeader" itemscope itemtype='http://schema.org/WPHeader'>
+    <header class="l-pageHeader" itemscope itemtype='http://schema.org/LocalBusiness'>
         <!--main logo-->
-        <a class="b-hdrLogo" href="index.html">
-            <img src="images/logo.png" alt="B-compressor.ru - поршневые компрессоры">
+        <a class="b-hdrLogo" href="index.html" itemprop='url'>
+            <img src="images/logo.png" alt="B-compressor.ru - поршневые компрессоры" itemprop='image'>
+            <span class="ir" itemprop="name">B-compressor.ru - поршневые компрессоры</span>
         </a>
         <!--header main navigation-->
         <nav class="b-hdrMainNav" itemscope itemtype='http://schema.org/SiteNavigationElement'>
@@ -55,20 +56,224 @@
     <!-- CONTENT -->
     <div class="l-pageContentWrap">
         <!--product-->
-        <div class="b-product">
+        <div class="b-product" itemscope itemtype='http://schema.org/Product'>
             <nav class="b-product__nav">
                 <ul>
-                    <li><a class="item" href="#">Деталировки</a></li>
-                    <li><a class="item" href="#">Головка с416м</a></li>
-                    <li><a class="item" href="#">Головка с412м</a></li>
-                    <li><a class="item" href="#">Головка к24М</a></li>
-                    <li><a class="item" href="#">Головка с415м</a></li>
+                    <li><a class="item active" href="#">Деталировки</a>
+                    <li><a class="item" href="#">Головка <b>с416м</b></a>
+                    <li><a class="item" href="#">Головка <b>с412м</b></a>
+                    <li><a class="item" href="#">Головка <b>к24М</b></a>
+                    <li><a class="item" href="#">Головка <b>с415м</b></a>
                 </ul>
             </nav>
             <div class="b-product__content">
+                <h1 class="title" itemprop='name'>Компрессорная головка С416М</h1>
+                <div class="l-jList">
+                    <img src="images/tmp/product__image.png" alt="Product image" itemprop='image'>
+                    <div class="m-width_470">
+                        <div class="description">
+                            <dl>
+                                <dt>Запчасть:</dt>
+                                <dd itemprop='model'><b>Компрессорная головка С416М</b></dd>
+                                <dt>Артикул:</dt>
+                                <dd itemprop='productID'><b>00018245М</b></dd>
+                                <dt>Совместимость с моделями компрессоров:</dt>
+                                <dd>
+                                    <a href="#">К23</a>,
+                                    <a href="#">К347</a>,
+                                    <a href="#">К320-С</a>
+                                </dd>
+                                <dt>Описание:</dt>
+                                <dd itemprop='description'>Компрессорная головка служит для сжатия воздуха, взятого из атмосферы и нагнетания его непосредственно в ресивер, после чего сжатый воздух транспортируется по пневмопроводам к потребителям.</dd>
+                            </dl>
+                            <!--purchase button-->
+                            <div class="b-purchase">
+                                <div>
+                                    Купить товар
+                                    <span class="helper">(укажите количество)</span>
+                                </div>
+                                <div class="b-counter">
+                                    <a href="#" class="control control__minus"><span>-</span></a>
+                                    <span class="b-counter__item">10</span>
+                                    <a href="#" class="control control__plus">+</a>
+                                </div>
+                            </div><!--end b-purchase-->
+                        </div><!--end description-->
+                        <!--additional info-->
+                        <div class="product__additionalInfo">
+                            У вас также есть возможность купить компрессорную головку С416М не в сборе а по запчастям!
+                            Смотрите наши предложения ниже!
+                        </div>
+                    </div>
+                </div>
+            </div><!--end product content-->
+        </div><!--end product-->
+        <!--product variations-->
+        <ul class="b-product__variations">
+            <!--one item-->
+            <li class="item" itemscope itemtype='http://schema.org/Product'>
+                <a class="title" href="#" itemprop='url'>
+                    <span itemprop='name'>Поршень низкого</span>
+                </a>
+                <div class="image">
+                    <img itemprop='image' src="images/tmp/product__variations-1.png" alt="">
+                </div>
+                <!--purchase button-->
+                <div class="b-purchase">
+                    <div>
+                        Купить
+                    </div>
+                    <div class="b-counter">
+                        <a href="#" class="control control__minus"><span>-</span></a>
+                        <span class="b-counter__item">1</span>
+                        <a href="#" class="control control__plus">+</a>
+                    </div>
+                </div><!--end b-purchase-->
+            </li>
+            <!--one item-->
+            <li class="item" itemscope itemtype='http://schema.org/Product'>
+                <a class="title" href="#" itemprop='url'>
+                    <span itemprop='name'>Поршень низкого давления с низкого давления с шатуном</span>
+                </a>
+                <div class="image">
+                    <img itemprop='image' src="images/tmp/product__variations-1.png" alt="">
+                </div>
+                <!--purchase button-->
+                <div class="b-purchase">
+                    <div>
+                        Купить
+                    </div>
+                    <div class="b-counter">
+                        <a href="#" class="control control__minus"><span>-</span></a>
+                        <span class="b-counter__item">1</span>
+                        <a href="#" class="control control__plus">+</a>
+                    </div>
+                </div><!--end b-purchase-->
+            </li>
+            <!--one item-->
+            <li class="item" itemscope itemtype='http://schema.org/Product'>
+                <a class="title" href="#" itemprop='url'>
+                    <span itemprop='name'>Поршень низкого давления с шатуном</span>
+                </a>
+                <div class="image">
+                    <img itemprop='image' src="images/tmp/product__variations-1.png" alt="">
+                </div>
+                <!--purchase button-->
+                <div class="b-purchase">
+                    <div>
+                        Купить
+                    </div>
+                    <div class="b-counter">
+                        <a href="#" class="control control__minus"><span>-</span></a>
+                        <span class="b-counter__item">1</span>
+                        <a href="#" class="control control__plus">+</a>
+                    </div>
+                </div><!--end b-purchase-->
+            </li>
+            <!--one item-->
+            <li class="item" itemscope itemtype='http://schema.org/Product'>
+                <a class="title" href="#" itemprop='url'>
+                    <span itemprop='name'>Блок клапанный С416М в сборе (левый)</span>
+                </a>
+                <div class="image">
+                    <img itemprop='image' src="images/tmp/product__variations-2.png" alt="">
+                </div>
+                <!--purchase button-->
+                <div class="b-purchase">
+                    <div>
+                        Купить
+                    </div>
+                    <div class="b-counter">
+                        <a href="#" class="control control__minus"><span>-</span></a>
+                        <span class="b-counter__item">1</span>
+                        <a href="#" class="control control__plus">+</a>
+                    </div>
+                </div><!--end b-purchase-->
+            </li>
+            <!--one item-->
+            <li class="item" itemscope itemtype='http://schema.org/Product'>
+                <a class="title" href="#" itemprop='url'>
+                    <span itemprop='name'>Блок клапанный С416М в сборе (левый)</span>
+                </a>
+                <div class="image">
+                    <img itemprop='image' src="images/tmp/product__variations-2.png" alt="">
+                </div>
+                <!--purchase button-->
+                <div class="b-purchase">
+                    <div>
+                        Купить
+                    </div>
+                    <div class="b-counter">
+                        <a href="#" class="control control__minus"><span>-</span></a>
+                        <span class="b-counter__item">1</span>
+                        <a href="#" class="control control__plus">+</a>
+                    </div>
+                </div><!--end b-purchase-->
+            </li>
+        </ul><!--end product variation-->
 
-            </div>
-        </div>
+        <!--product table-->
+        <table class="b-product__table">
+            <tr>
+                <th>Позиция</th>
+                <th>Номер детали\узла</th>
+                <th>Наименование</th>
+                <th>Колличество</th>
+                <th>Примечание</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>С416М.20.00.301</td>
+                <td>Поршень</td>
+                <td>
+                    <div class="b-counter">
+                        <a href="#" class="control control__minus"><span>-</span></a>
+                        <span class="b-counter__item">1</span>
+                        <a href="#" class="control control__plus">+</a>
+                    </div>
+                </td>
+                <td>4 наибольшее количество</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>С416М.20.00.301</td>
+                <td>Поршень</td>
+                <td>
+                    <div class="b-counter">
+                        <a href="#" class="control control__minus"><span>-</span></a>
+                        <span class="b-counter__item">1</span>
+                        <a href="#" class="control control__plus">+</a>
+                    </div>
+                </td>
+                <td>4 наибольшее количество</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>С416М.20.00.301</td>
+                <td>Поршень</td>
+                <td>
+                    <div class="b-counter">
+                        <a href="#" class="control control__minus"><span>-</span></a>
+                        <span class="b-counter__item">1</span>
+                        <a href="#" class="control control__plus">+</a>
+                    </div>
+                </td>
+                <td>4 наибольшее количество</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>С416М.20.00.301</td>
+                <td>Поршень</td>
+                <td>
+                    <div class="b-counter">
+                        <a href="#" class="control control__minus"><span>-</span></a>
+                        <span class="b-counter__item">1</span>
+                        <a href="#" class="control control__plus">+</a>
+                    </div>
+                </td>
+                <td>4 наибольшее количество</td>
+            </tr>
+        </table>
     </div><!-- END CONTENT -->
 
 </div><!-- END WRAPPER -->
@@ -86,23 +291,24 @@
         </ul>
     </nav>
     <!--bottom footer block-->
-    <div class="l-pageFooter__bottomBlock">
+    <div class="l-pageFooter__bottomBlock" itemscope itemtype="http://schema.org/LocalBusiness">
         <!--footer logo-->
-        <a href="#" class="b-ftrLogo">
-            <img src="images/ftr-logo.png" alt="B-compressor.ru - поршневые компрессоры">
+        <a href="#" class="b-ftrLogo" itemprop='url'>
+            <img src="images/ftr-logo.png" alt="B-compressor.ru - поршневые компрессоры"  itemprop='image'>
+            <span class="ir" itemprop="name">B-compressor.ru - поршневые компрессоры</span>
         </a>
         <!--copyrights-->
         <small class="b-copy">2011 Copyright B-compressor.ru Продажа поршневых компрессоров</small>
         <!--phone numbers-->
         <address class="b-phone">
             <p class="title">Телефоны:</p>
-            <p class="item">+7 (495) <b class="item__content">787 48 25</b></p>
-            <p class="item">+7 (495) <b class="item__content">787 56 00</b></p>
+            <p class="item" itemprop='telephone'>+7 (495) <b class="item__content">787 48 25</b></p>
+            <p class="item" itemprop='telephone'>+7 (495) <b class="item__content">787 56 00</b></p>
         </address>
         <!--mail us-->
         <address class="b-mailUs">
             <p class="title">Эл.почта:</p>
-            <a class="item" href="mailto:info@b-compressor.ru">info@b-compressor.ru</a>
+            <a class="item" href="mailto:info@b-compressor.ru" itemprop='email'>info@b-compressor.ru</a>
         </address>
         <!--counter-->
         <div class="counter">
@@ -111,6 +317,66 @@
     </div>
 </footer>
 <!-- END FOOTER -->
+
+<!--address vidget (on the top)-->
+<div class="b-adressVidget">
+    <address class="b-phone">
+        <p class="title">Телефоны:</p>
+        <div>
+            <p class="item">+7 (495) <b class="item__content">787 48 25</b></p>
+            <p class="item">+7 (495) <b class="item__content">787 56 00</b></p>
+        </div>
+    </address>
+    <address class="b-mailUs">
+        <p class="title">Эл.почта:</p>
+        <a class="item" href="mailto:info@b-compressor.ru">info@b-compressor.ru</a>
+    </address>
+</div>
+
+<div class="b-shopcartVidget">
+    <form class="search">
+        <input type="search" placeholder="Поиск по сайту">
+        <button></button>
+    </form>
+    <address class="l-jList b-phone">
+        <p class="title">Телефоны:</p>
+        <p class="item">+7 (495) <b class="item__content">787 48 25</b></p>
+    </address>
+    <table class="table">
+        <tr>
+            <th>Ваш заказ</th>
+            <th>Цена</th>
+            <th>Кол-во</th>
+            <th>Сумма</th>
+        </tr>
+        <tr>
+            <td class="name"><a href="#">Картер <span class="model">C-415М.20.00.329</span></a></td>
+            <td class="price"><b>10425</b> руб.</td>
+            <td>
+                <div class="b-counter">
+                    <a href="#" class="control control__minus"><span>-</span></a>
+                    <span class="b-counter__item">1</span>
+                    <a href="#" class="control control__plus">+</a>
+                </div>
+            </td>
+            <td class="sum"><b>10425</b> руб.</td>
+        </tr>
+        <tr>
+            <td><a href="#">Картер <span class="name">C-415М.20.00.329</span></a></td>
+            <td class="price"><b>10425</b> руб.</td>
+            <td>
+                <div class="b-counter">
+                    <a href="#" class="control control__minus"><span>-</span></a>
+                    <span class="b-counter__item">1</span>
+                    <a href="#" class="control control__plus">+</a>
+                </div>
+            </td>
+            <td class="sum"><b>10425</b> руб.</td>
+        </tr>
+    </table>
+    <div class="total">Итого:<b>24590 руб.</b></div>
+    <a href="#" class="purchase">Оформить заказ</a>
+</div>
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
