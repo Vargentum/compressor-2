@@ -26,4 +26,9 @@ $(function(){
 //            columns: columnCount
 //        });
 //    }
+    $('.b-ftrNav li').each(function(){
+        $(this).hover(function(){
+            $(this).prev().children('.item').toggleClass('no-border');
+        })
+    })
 });

@@ -37,7 +37,7 @@ $linkActiveColor:#b53228;
 $linkVisitedColor:#b53228;
 $linkFocusedColor:#b53228;
 //set colors here;
-
+$titleColor:#3f6788;
 //base font params--------------------
 $baseFontFamily: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif;
 $baseFontColor: #767676;
@@ -46,37 +46,6 @@ $baseLineHeight: 1.4;
 //layout params-----------------------
 $baseWidth: 995px;
 $ftrHeight:135px;
-
-/*FONT FACEing
----------------------------------------------------------*/
-@each $font-face in
-galsc-webfont,
-galsc-bold-webfont,
-galsc-bolditalic-webfont,
-galsc-italic-webfont{
- @font-face {
-   font-family: $font-face; font-style: normal; font-weight: normal;
-   src: url('../fonts/#{$font-face}.eot');
-   src: url('../fonts/#{$font-face}.eot?#iefix') format('embedded-opentype'),
-   url('../fonts/#{$font-face}.woff') format('woff'),
-   url('../fonts/#{$font-face}.ttf')  format('truetype');
- }
-}
-
-$baseFont: 'galsc-webfont';
-$baseFontBold: 'galsc-bold-webfont';
-$baseFontItalic: 'galsc-bolditalic-webfont';
-$baseFontBoldItalic: 'galsc-italic-webfont';
-
-b,strong{
-  font-family: $baseFontBold;
-  em{font-family: $baseFontBoldItalic;}
-}
-em{
-  font-family: $baseFontItalic;
-  b, strong{font-family: $baseFontBoldItalic;}
-}
-
 
 /*HELPER CLASSES
 ---------------------------------------------------------*/
@@ -96,11 +65,6 @@ em{
   vertical-align: middle;
 }
 //for horisontal layouts
-@mixin flexList{
-  .flexbox &{@include display-box;}
-  .no-flexbox & > *{@include inline-block;}
-}
-.flexList{@include flexList;}
 @mixin hList{&>*{@include inline-block;}}
 .l-hList{@include hList;}
 @mixin jList{
@@ -121,15 +85,20 @@ em{
   >*{
     text-align: left;
     @include inline-block;
-    line-height: $baseLineHeight;font-size: $baseFontSize;
+    line-height: $baseLineHeight;
+    font-size: $baseFontSize;
   }
 }
 .l-jList{@include jList;}
-@mixin jList_singleLine{
-  .flexbox &{@include display-box; @include box-pack(justify);}
+//full width in container
+@mixin flexList{
+  .flexbox &{
+    @include display-box;
+    &>*{@include box-flex(1);}
+  }
   .no-flexbox &{@include jList;}
 }
-.l-jList_singleLine{@include jList;}
+.flexList{@include flexList;}
 //img wrapper
 @mixin imgWrap{
   img{width:100%;height: 100%;}
@@ -172,26 +141,30 @@ a{@include link;}
 /*OBJECTS mixins
 --------------------------------------------*/
 @mixin vidget-bg{background-color: #eee;}
+@mixin vidget-bg-active{background-color: #fee85d;}
 @mixin vidget-gradient{
   background-color: rgb(237,237,237);
   @include filter-gradient(#ededed, #f6f6f6, vertical);
   @include ie9-gradient-support;
   @include background-image(linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(238,238,238,1) 32%,rgba(240,240,240,1) 33%,rgba(241,241,241,1) 48%,rgba(246,246,246,1) 70%,rgba(246,246,246,1) 100%));
 }
-@mixin vidget-active-bg{background-color: #fee85d;}
-@mixin vidgetBgActive{
+@mixin vidget-gradient-active{
   @include ie9-gradient-support;
   background-color: rgb(252,223,67);
   @include filter-gradient(#fcdf43, #fffd84, vertical);
   @include ie9-gradient-support;
   @include background-image(linear-gradient(top,  rgba(252,223,67,1) 0%,rgba(253,225,66,1) 4%,rgba(250,223,70,1) 5%,rgba(252,226,67,1) 8%,rgba(252,226,71,1) 9%,rgba(251,224,71,1) 13%,rgba(252,227,73,1) 18%,rgba(254,229,77,1) 19%,rgba(252,226,77,1) 22%,rgba(255,230,78,1) 24%,rgba(255,233,87,1) 32%,rgba(255,233,88,1) 37%,rgba(254,235,94,1) 38%,rgba(255,235,92,1) 39%,rgba(255,236,98,1) 42%,rgba(255,240,99,1) 44%,rgba(255,237,99,1) 47%,rgba(255,240,103,1) 48%,rgba(254,241,101,1) 49%,rgba(255,242,107,1) 51%,rgba(255,242,104,1) 52%,rgba(255,239,107,1) 53%,rgba(254,244,112,1) 54%,rgba(255,244,108,1) 56%,rgba(255,252,123,1) 70%,rgba(254,254,122,1) 72%,rgba(255,251,125,1) 75%,rgba(255,254,127,1) 82%,rgba(255,251,126,1) 84%,rgba(255,255,131,1) 86%,rgba(255,255,129,1) 92%,rgba(255,253,132,1) 100%));
 }
-@mixin vidgetBgAcitve-1{
+@mixin vidget-gradient-active-1{
   background-color: rgb(254,229,77);
   @include filter-gradient(#fee54d, #fffb52, vertical);
   @include ie9-gradient-support;
   @include background-image(linear-gradient(top,  rgba(254,229,77,1) 0%,rgba(254,229,75,1) 43%,rgba(255,238,80,1) 73%,rgba(254,242,78,1) 86%,rgba(255,244,82,1) 90%,rgba(255,251,82,1) 100%));
-
+}
+@mixin pageBaseStyle{
+  @include border-radius(10px);
+  border:1px solid #ebebeb;
+  padding:20px;
 }
 /*LAYOUT
 ----------------------------------------------------------*/
@@ -199,20 +172,23 @@ a{@include link;}
   .l-pageWrap{
     min-height: 100%;
     height: auto !important;
+    position: relative;
     height: 100%;
     margin: 0 auto;
-    width: $baseWidth
+    width: $baseWidth;
   }
   .l-pageHeader {
     position: relative;
     @include jList;
   }
-  .l-pageContentWrap{padding-bottom: $ftrHeight !important;}
+  .l-pageContentWrap{
+    padding-bottom: $ftrHeight + 20px;
+  }
   .l-pageFooter{
     position: relative;
     height: $ftrHeight;
     margin: -$ftrHeight auto 0;
-    width: $baseWidth
+    width: $baseWidth;
   }
 }
 html, button, input, select, textarea {
@@ -221,6 +197,7 @@ html, button, input, select, textarea {
   color: $baseFontColor;
 }
 body {
+  position: relative;
   height: 100%;
   font-size: $baseFontSize;
   line-height: $baseLineHeight;
@@ -247,14 +224,14 @@ body {
     box-shadow: 0 1px 0 #c5c5c5;
     margin-bottom: 5px;
     font-size: 13px;
-    line-height: 1.1;
+    line-height: 1;
     padding:15px;
     text-transform: uppercase;
     text-decoration: none;
     @include border-radius(15px);
     @include link-colors(#8c8c8c, #b17323);
     &:focus,&:hover,&.active{
-      @include vidgetBgActive;
+      @include vidget-gradient-active;
       color:#b17323;
     }
     &:before{@include pseudoBlockAbs;bottom:0;right:0;}
@@ -263,6 +240,14 @@ body {
         @include mainNav-sprite(nav-#{$i});
       }
     }
+    &.item-1:before{width: 40px; height: 74px; }
+    &.item-2:before{width: 35px; height: 72px; }
+    &.item-3:before{width: 41px; height: 64px;bottom:10px;}
+    &.item-4:before{width: 29px; height: 64px;top:0;}
+    &.item-5:before{width: 38px; height: 37px;}
+    &.item-6:before{width: 55px; height: 48px;}
+    &.item-7:before{width: 41px; height: 69px;}
+    &.item-8:before{width: 60px; height: 77px;}
   }
 }
 .b-hdrServNav{
@@ -282,34 +267,155 @@ body {
     }
   }
 }
-/* page content
+/* footer elem styles
 ------------------------------------*/
-.l-contentWrap {
-
+.l-pageFooter__bottomBlock{@include jList;padding-top: 20px;}
+.b-ftrNav{
+  @include border-radius(15px);
+  @include vidget-gradient;
+  @include box-shadow(inset 1px 1px 3px rgba(0,0,0,.35));
+  ul{@include flexList;}
+  li{
+    &:first-child .item{@include border-radius(15px 0 0 15px);}
+    &:last-child .item{
+      @include border-radius(0 15px 15px 0);
+      &:before{display: none;}
+    }
+  }
+  .item{
+    display: block;
+    position: relative;
+    @include single-transition(none);
+    text-align: center;
+    text-transform: uppercase;
+    @include link-colors(#524949, #9d722f);
+    padding: 10px 0;
+    .no-flexbox &{padding:10px 38px;}
+    &:before{
+      @include pseudoBlockAbs;
+      width:1px;
+      background: #c9c9c9;;
+      height: 22px;
+      right:0;
+      top:50%;
+      margin-top: -11px;
+    }
+    &:hover{
+      &:before{display: none;}
+      background-color: rgb(214,172,24);
+      @include filter-gradient(#d6ac18, #f8e877, vertical);
+      @include ie9-gradient-support;
+      @include background-image(linear-gradient(top,  rgba(214,172,24,1) 0%,rgba(250,200,27,1) 3%,rgba(250,208,36,1) 6%,rgba(252,222,64,1) 13%,rgba(252,226,71,1) 16%,rgba(252,227,75,1) 19%,rgba(252,228,78,1) 32%,rgba(253,228,83,1) 35%,rgba(253,231,94,1) 55%,rgba(252,232,101,1) 58%,rgba(253,233,100,1) 61%,rgba(252,236,114,1) 77%,rgba(253,237,116,1) 87%,rgba(253,238,121,1) 90%,rgba(253,238,121,1) 97%,rgba(248,232,119,1) 100%));
+    }
+  }
+  .no-border:before{display: none;}
 }
-  //main column-------------->
-  .l-columnMain{}
-  //left column-------------->
-  .l-columnLt{}
-  //right column-------------->
-  .l-columnRt{}
-
-/* Footer
-------------------------------------*/
-.l-pageFooter {
+.b-copy{
+  width:230px;
+  text-transform: uppercase;
+  color:#969696;
+  font: 10px "Arial Narrow", Arial, sans-serif;
 }
-
 /*INDEPENDENT MODULES styles
 -----------------------------------------------------------------------------------------------*/
-//bread crumbs
-.b-crumbs{
-  ul{@include hList;}
-  .item{}
+.b-phone{
+  .title{
+    color:#bcbcbc;
+    font-size: 11px;
+    position: relative;
+  }
+  .item{
+    font-size: 20px;
+    color:#757575;
+    line-height: 1.2;
+  }
+  .item__content{
+    color:#373737;
+  }
 }
-/*main page specific elements styles
+.b-mailUs{
+  .l-pageFooter &{vertical-align: top;}
+  .title{
+    color:#bcbcbc;
+    font-size: 11px;
+    position: relative;
+  }
+  .item{font-size: 15px;}
+}
+/*CATEGORY page specific elements styles
 -----------------------------------------------------------------------------------------------*/
-
-/*some page specific elements styles
+.page-category{
+  @include pageBaseStyle;
+  padding-bottom: 10px;
+  .title{font-size: 18px; font-weight: bold; color:$titleColor;margin-bottom: 10px;}
+  table{}
+}
+.page-category__table{
+  width:100%;
+  font: 11px Tahoma, Verdana, Segoe, sans-serif;
+  caption{font-size: 22px;font-weight: bold;color:$titleColor;margin:10px 0;}
+  th{
+    vertical-align: top;
+    @include vidget-gradient-active-1;
+    color:#924a2b;
+    text-align: center;
+    font-weight: bold;
+    padding:10px 5px;
+    position: relative;
+    &:before{
+      @include pseudoBlockAbs;
+      width:0;
+      height: 35px;
+      border-right: 1px dotted #989898;
+      right:-1px;bottom:0;
+      z-index: 1;
+    }
+    &:first-child{
+      @include border-radius(15px 0 0 0);
+      padding-left: 12px;
+    }
+    &:last-child{
+      @include border-radius(0 15px 0 0);
+      padding-right: 12px;
+      &:before{display: none;}
+    }
+  }
+  tbody{
+    tr{
+      &:nth-child(even) td{background: #f4f4f4;}
+      &:hover td{
+        background: #bababa;
+        &:first-child{padding-left: 30px;}
+      }
+      &:last-child td{
+        &:first-child{@include border-radius(0 0 0 15px);}
+        &:last-child{@include border-radius(0 0 15px 0);}
+        border-bottom: 1px solid #e1e1e1;
+      }
+    }
+    td{
+      border-right: 1px dotted #989898;
+      @include single-transition(all,.4s,ease,0s);
+      color:$titleColor;
+      text-align: center;
+      &:first-child{
+        text-align: left;
+        padding-left: 20px;
+        border-left: 1px solid #e1e1e1;
+      }
+      &:last-child{
+        font:bold 14px $baseFontFamily;
+        border-right: 1px solid #e1e1e1;
+      }
+      padding:5px 0;
+    }
+  }
+  tfoot td{
+    padding-top:10px;
+    font: italic 13px $baseFontFamily;
+  }
+}
+/*PRODUCT page specific elements styles
 ------------------------------------------------------------------------------------------------*/
 /*some page specific elements styles
 ------------------------------------------------------------------------------------------------*/
